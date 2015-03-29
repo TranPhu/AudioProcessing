@@ -13,7 +13,7 @@
 
 using namespace std;
 
-class CaptureAudio : public RecordAudio 
+class CaptureAudio : public RecordAudio
 {
 private:
   unsigned char* dataCaptured;

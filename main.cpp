@@ -18,9 +18,11 @@ int main(int argc, char **argv)
   int sizeofData;
   //unsigned char* dataCapture;
   
-  // class CaptureAudio *record = new CaptureAudio(500);
-   //RecordAudio::start();
+   class CaptureAudio *record = new CaptureAudio(500);
+   record->captured();
    
+   //RecordAudio::start();
+
 //    sizeofData = record->captured();
 //    dataCapture = (unsigned char*)malloc(sizeof(unsigned char*)*sizeofData);
 //    
@@ -34,6 +36,6 @@ int main(int argc, char **argv)
     break;
   }
   
-//   delete record;
+   delete record;
   return 1;
 }

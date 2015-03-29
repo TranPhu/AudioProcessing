@@ -7,6 +7,12 @@ CaptureAudio::CaptureAudio(int sizeArray)
   this->dev = RecordAudio::OpenedDevice();
 }
 
+CaptureAudio::~CaptureAudio()
+{
+   alcMakeContextCurrent(NULL); 
+  alcCaptureCloseDevice(this->dev);
+}
+
 int CaptureAudio::captured()
 {
     ALint samplesAvailable; 
