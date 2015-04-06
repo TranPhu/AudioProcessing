@@ -8,8 +8,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "config"
 #include "WAVFile.h"
 #include "RecordAudio.h"
+
 
 using namespace std;
 

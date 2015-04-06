@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <pthread.h>
 
+#include "config"
 #include "RecordAudio.h"
 #include "WAVFormat.h"
 #include "WAVFile.h"
@@ -14,28 +15,23 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-  string fileName = "fileRecord.wav";
+//   string fileName = "fileRecord.wav";
   int sizeofData;
-  //unsigned char* dataCapture;
+  unsigned char* dataCapture;
+  dataCapture = (unsigned char*)malloc(sizeof(unsigned char*)*BUFFER_SIZE); 
   
-   class CaptureAudio *record = new CaptureAudio(500);
-   record->captured();
+  class CaptureAudio *record = new CaptureAudio();     
    
-   //RecordAudio::start();
-
-//    sizeofData = record->captured();
-//    dataCapture = (unsigned char*)malloc(sizeof(unsigned char*)*sizeofData);
-//    
-//    dataCapture = record->returnData();
-//    
-//    for(int i;i<sizeofData;i++)
-//     {
-// 	printf("data[%i] = %i\n",dataCapture[i]);
-//     }
-  while(1){
-    break;
+  while(true)
+  {
+    sizeofData = record->captured();
+    dataCapture = record->returnData();
+    
+    printf("Data captured is size: %i\r",sizeofData);
+    usleep(500000);
   }
   
-   delete record;
-  return 1;
+  delete dataCapture;
+  delete record;
+  return 0;
 }
